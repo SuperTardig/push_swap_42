@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_multi_bonus.c                           :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 10:53:14 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/07 14:49:05 by bperron          ###   ########.fr       */
+/*   Created: 2022/03/29 10:44:08 by bperron           #+#    #+#             */
+/*   Updated: 2022/05/05 10:47:38 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_bonus.h"
+#include "libft.h"
+#include <stdio.h>
 
-void	ss(t_stacks *stacks)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	sab(stacks->stack_a);
-	sab(stacks->stack_b);
-	ft_printf("ss\n");
-}
+	size_t	i;
+	size_t	j;
 
-void	rr(t_stacks *stacks)
-{
-	rab(stacks->stack_a);
-	rab(stacks->stack_b);
-	ft_printf("rr\n");
-}
-
-void	rrr(t_stacks *stacks)
-{
-	rrab(stacks->stack_a);
-	rrab(stacks->stack_b);
-	ft_printf("rrr\n");
+	i = 0;
+	if (needle[0] == '\0')
+		return ((char *) haystack);
+	while (haystack[i] && i < len)
+	{
+		j = 0;
+		while (haystack[i + j] == needle[j] && (i + j) < len)
+		{
+			if (needle[j + 1] == '\0')
+				return ((char *) &haystack[i]);
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
 }
