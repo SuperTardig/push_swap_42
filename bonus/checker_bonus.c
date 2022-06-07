@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 10:46:35 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/07 13:21:48 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/07 15:22:39 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,13 @@ void	sorting(t_stacks *stacks)
 	char	*output;
 
 	output = get_next_line(0);
-	while (output)
+	while (output && output[0] != '\n')
 	{
 		format(stacks, output);
 		free(output);
 		output = get_next_line(0);
 	}
+	free(output);
 }
 
 void	redirection(t_stacks *stacks, char ***split, char *av[])
@@ -101,7 +102,7 @@ int	main(int ac, char *av[])
 		return (0);
 	}
 	sorting(&stacks);
-	if (checkorder(stacks.stack_a) == 0 && stacksize(*stacks.stack_b, 0) == 0)
+	if (checkorder(stacks.stack_a) == 0 && !(stacks.stack_b))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
