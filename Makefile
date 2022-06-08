@@ -6,26 +6,26 @@
 #    By: bperron <bperron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 10:16:37 by bperron           #+#    #+#              #
-#    Updated: 2022/06/07 09:28:16 by bperron          ###   ########.fr        #
+#    Updated: 2022/06/08 13:36:57 by bperron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Werror -Wall -Wextra -g
+CFLAGS = -Werror -Wall -Wextra
 RM = rm -f
 
 LIBFT_SRCS = ./libft/*.c
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 
 NAME = push_swap
-SRCS = push_swap.c error.c operations_single.c operations_push.c operations_multi.c push_swap_utils.c push_swap_utils2.c push_swap_utils3.c small_algo.c big_algo.c
+SRCS = srcs/push_swap.c srcs/error.c srcs/operations_single.c srcs/operations_push.c srcs/operations_multi.c srcs/push_swap_utils.c srcs/push_swap_utils2.c srcs/push_swap_utils3.c srcs/small_algo.c srcs/big_algo.c
 OBJS = $(SRCS:.c=.o)
 
 LIBFT_SRCS_BONUS = ./bonus/libft/*.c
 LIBFT_OBJS_BONUS = $(LIBFT_SRCS_BONUS:.c=.o)
 
 NAME_BONUS = checker
-SRCS_BONUS = bonus/checker_bonus.c bonus/error_bonus.c bonus/operations_single_bonus.c bonus/operations_push_bonus.c bonus/operations_multi_bonus.c bonus/push_swap_utils_bonus.c bonus/push_swap_utils2_bonus.c
+SRCS_BONUS = bonus/srcs/checker_bonus.c bonus/srcs/error_bonus.c bonus/srcs/operations_single_bonus.c bonus/srcs/operations_push_bonus.c bonus/srcs/operations_multi_bonus.c bonus/srcs/push_swap_utils_bonus.c bonus/srcs/push_swap_utils2_bonus.c
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
