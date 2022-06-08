@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 11:14:04 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/06 09:16:37 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/08 12:23:48 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <limits.h>
 
-# define BUFFER_SIZE 100
+# define BUFFER_SIZE 1
 
 typedef struct s_list
 {
@@ -96,13 +96,12 @@ int		ft_printfp(unsigned long ptr);
 /*GET_NEXT_LINE*/
 
 char	*get_next_line(int fd);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
-size_t	ft_strlen(const char *str);
 int		ft_strchri(const char *s, int c);
 char	*ft_fill_buffer(char *stat, int fd);
 char	*ft_join(char *stat, char *buffer, int stop);
 char	*ft_del_old(char *stat);
 char	*ft_fill_line(char *stat);
+int		check(char *new);
+char	*create_stat(char *stat);
 
 #endif

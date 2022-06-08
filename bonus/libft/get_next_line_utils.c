@@ -6,11 +6,12 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 09:24:21 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/06 09:19:51 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/08 13:24:40 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include<stdio.h>
 
 int	ft_strchri(const char *s, int c)
 {
@@ -30,4 +31,24 @@ int	ft_strchri(const char *s, int c)
 		i++;
 	}
 	return (0);
+}
+
+int	check(char *new)
+{
+	if (ft_strcmp(new, "sa\n") == 0 || ft_strcmp(new, "sb\n") == 0
+		|| ft_strcmp(new, "ra\n") == 0 || ft_strcmp(new, "rb\n") == 0
+		|| ft_strcmp(new, "rra\n") == 0 || ft_strcmp(new, "rrb\n") == 0
+		|| ft_strcmp(new, "pa\n") == 0 || ft_strcmp(new, "pb\n") == 0
+		|| new == NULL)
+		return (0);
+	else
+		return (1);
+}
+
+char	*create_stat(char *stat)
+{
+	stat = ft_calloc(1, 1);
+	if (!stat)
+		return (NULL);
+	return (stat);
 }

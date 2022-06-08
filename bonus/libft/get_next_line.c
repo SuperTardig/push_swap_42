@@ -6,11 +6,12 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 09:24:23 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/06 09:20:00 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/08 13:35:47 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_join(char *stat, char *buffer, int stop)
 {
@@ -46,18 +47,24 @@ char	*ft_fill_buffer(char *stat, int fd)
 	int		stop;
 
 	if (!stat)
-	{
-		stat = ft_calloc(1, 1);
-		if (!stat)
-			return (NULL);
-	}
+		stat = create_stat(stat);
 	stop = 1;
 	while (ft_strchri(stat, '\n') == 0 && stop > 0)
 	{
 		stop = read(fd, buffer, BUFFER_SIZE);
-		if (stop < 0)
+		if (stop <= 0 )
+		{
+			free(stat);
 			return (NULL);
+		}
 		stat = ft_join(stat, buffer, stop);
+		if (stat == NULL)
+			return (NULL);
+	}
+	if (check(stat) == 1)
+	{
+		free(stat);
+		return ("bad");
 	}
 	return (stat);
 }
@@ -124,6 +131,10 @@ char	*get_next_line(int fd)
 	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	stat[fd] = ft_fill_buffer(stat[fd], fd);
+	if (stat[fd] == NULL)
+		return (NULL);
+	if (check(stat[fd]) == 1 && stat[fd] != NULL)
+		return ("bad");
 	line = ft_fill_line(stat[fd]);
 	stat[fd] = ft_del_old(stat[fd]);
 	return (line);
