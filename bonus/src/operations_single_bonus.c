@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 11:38:56 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 11:12:37 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/08 14:29:42 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_stacks	*pab(t_stacks *stacks, int i)
 	}
 	else if (i == 2)
 	{
-
 		if (!(stacks->stack_a))
 			pa_no_dst(stacks);
 		else

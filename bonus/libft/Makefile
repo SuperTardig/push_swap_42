@@ -6,14 +6,14 @@
 #    By: bperron <bperron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/31 10:18:14 by bperron           #+#    #+#              #
-#    Updated: 2022/06/06 09:19:28 by bperron          ###   ########.fr        #
+#    Updated: 2022/06/09 12:17:43 by bperron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CC = gcc
-CFLAGS = -Werror -Wall -Wextra -g
+CFLAGS = -Werror -Wall -Wextra
 RM = rm -f
 LIB = ar rcs
 

@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 09:24:23 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 13:35:47 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/08 14:29:49 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_fill_buffer(char *stat, int fd)
 	while (ft_strchri(stat, '\n') == 0 && stop > 0)
 	{
 		stop = read(fd, buffer, BUFFER_SIZE);
-		if (stop <= 0 )
+		if (stop <= 0)
 		{
 			free(stat);
 			return (NULL);
