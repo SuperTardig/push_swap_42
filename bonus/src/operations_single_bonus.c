@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 11:38:56 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 14:29:42 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/13 09:17:56 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,21 @@ void	sab(t_intlist *stack)
 	t_intlist	*hold;
 	t_intlist	*temp;
 
-	stack = returntop(stack);
-	if (stacksize(*stack, 0) > 1)
+	if (stack)
 	{
-		hold = stack;
-		stack = stack->next;
-		temp = stack->next;
-		stack->prev = NULL;
-		stack->next = hold;
-		hold = stack;
-		stack = stack->next;
-		stack->prev = hold;
-		stack->next = temp;
+		stack = returntop(stack);
+		if (stacksize(*stack, 0) > 1)
+		{
+			hold = stack;
+			stack = stack->next;
+			temp = stack->next;
+			stack->prev = NULL;
+			stack->next = hold;
+			hold = stack;
+			stack = stack->next;
+			stack->prev = hold;
+			stack->next = temp;
+		}
 	}
 }
 
@@ -55,19 +58,22 @@ void	rab(t_intlist *stack)
 {
 	t_intlist	*hold;
 
-	if (stacksize(*stack, 0) != 0)
+	if (stack)
 	{
-		stack = returntop(stack);
-		hold = stack;
-		stack = stack->next;
-		stack->prev = NULL;
-		while (stack->next != NULL)
+		if (stacksize(*stack, 0) != 0)
+		{
+			stack = returntop(stack);
+			hold = stack;
 			stack = stack->next;
-		stack->next = hold;
-		hold = stack;
-		stack = stack->next;
-		stack->next = NULL;
-		stack->prev = hold;
+			stack->prev = NULL;
+			while (stack->next != NULL)
+				stack = stack->next;
+			stack->next = hold;
+			hold = stack;
+			stack = stack->next;
+			stack->next = NULL;
+			stack->prev = hold;
+		}
 	}
 	stack = returntop(stack);
 }
@@ -76,20 +82,23 @@ void	rrab(t_intlist *stack)
 {
 	t_intlist	*hold;
 
-	if (stacksize(*stack, 0) != 0)
+	if (stack)
 	{
-		stack = returntop(stack);
-		while (stack->next != NULL)
-			stack = stack->next;
-		hold = stack;
-		stack = stack->prev;
-		stack->next = NULL;
-		while (stack->prev != NULL)
+		if (stacksize(*stack, 0) != 0)
+		{
+			stack = returntop(stack);
+			while (stack->next != NULL)
+				stack = stack->next;
+			hold = stack;
 			stack = stack->prev;
-		stack->prev = hold;
-		hold = stack;
-		stack = stack->prev;
-		stack->next = hold;
-		stack->prev = NULL;
+			stack->next = NULL;
+			while (stack->prev != NULL)
+				stack = stack->prev;
+			stack->prev = hold;
+			hold = stack;
+			stack = stack->prev;
+			stack->next = hold;
+			stack->prev = NULL;
+		}
 	}
 }

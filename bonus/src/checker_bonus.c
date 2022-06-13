@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 10:46:35 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/09 12:22:38 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/13 09:20:21 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	sorting(t_stacks *stacks)
 
 	nbmove = 0;
 	output = get_next_line(0);
-	while (output && output[0] != '\n')
+	while (output)
 	{
 		format(stacks, output);
 		free(output);
@@ -108,12 +108,6 @@ int	main(int ac, char *av[])
 		return (0);
 	}
 	pushswap(&stacks, &split, ac, av);
-	if (checkorder(stacks.stack_a) == 0)
-	{
-		ft_printf("The numbers are already sorted\n");
-		clean(&stacks, &split);
-		return (0);
-	}
 	ft_printf("%d move done\n", sorting(&stacks));
 	if (checkorder(stacks.stack_a) == 0 && !(stacks.stack_b))
 		ft_printf("OK\n");
