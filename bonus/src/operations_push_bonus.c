@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:12:30 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 11:24:50 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/29 09:59:58 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_stacks	*pa_no_dst(t_stacks *stacks)
 {
 	if (stacks->stack_b)
 	{
+		stacks->stack_b = returntop(stacks->stack_b);
 		stacks->stack_a = stacks->stack_b;
 		stacks->stack_b = stacks->stack_b->next;
 		stacks->stack_b->prev = NULL;
@@ -53,6 +54,7 @@ t_stacks	*pb_no_dst(t_stacks *stacks)
 {
 	if (stacks->stack_a)
 	{
+		stacks->stack_a = returntop(stacks->stack_a);
 		stacks->stack_b = stacks->stack_a;
 		stacks->stack_a = stacks->stack_a->next;
 		stacks->stack_a->prev = NULL;

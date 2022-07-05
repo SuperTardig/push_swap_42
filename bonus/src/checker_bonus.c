@@ -6,12 +6,11 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 10:46:35 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/13 09:20:21 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/23 12:25:50 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/checker_bonus.h"
-#include<stdio.h>
 
 void	initstacks(t_intlist *stack_a, int count, char **integrers)
 {
@@ -103,10 +102,7 @@ int	main(int ac, char *av[])
 
 	split = NULL;
 	if (ac == 1)
-	{
-		ft_printf("The number of arguments entered is incorret\n");
 		return (0);
-	}
 	pushswap(&stacks, &split, ac, av);
 	ft_printf("%d move done\n", sorting(&stacks));
 	if (checkorder(stacks.stack_a) == 0 && !(stacks.stack_b))

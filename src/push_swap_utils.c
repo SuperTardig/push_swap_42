@@ -6,45 +6,21 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:55:56 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 10:16:29 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/28 11:32:25 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-long long	ft_atoll(const char *str)
-{
-	int			i;
-	long long	signe;
-	long long	nb;
-
-	signe = 1;
-	i = 0;
-	nb = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-')
-		signe = -1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb *= 10;
-		nb += str[i] - 48;
-		i++;
-	}
-	return (nb * signe);
-}
 
 void	printstack(t_intlist *stack)
 {
 	stack = returntop(stack);
 	while (stack->next != NULL)
 	{
-		ft_printf ("%d\n", stack->content);
+		printf ("index = %d, number = %d\n", stack->index, stack->content);
 		stack = stack->next;
 	}
-	ft_printf ("%d\n", stack->content);
+	printf ("index = %d, number = %d\n", stack->index, stack->content);
 }
 
 t_intlist	*returntop(t_intlist *stack)

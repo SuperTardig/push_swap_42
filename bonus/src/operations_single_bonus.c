@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 11:38:56 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/13 09:17:56 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/23 13:04:34 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	sab(t_intlist *stack)
 		if (stacksize(*stack, 0) > 1)
 		{
 			hold = stack;
+			stack->prev = stack->next;
 			stack = stack->next;
-			temp = stack->next;
 			stack->prev = NULL;
+			temp = stack->next;
 			stack->next = hold;
-			hold = stack;
 			stack = stack->next;
-			stack->prev = hold;
 			stack->next = temp;
+			stack->next->prev = stack;
 		}
 	}
 }
@@ -62,20 +62,18 @@ void	rab(t_intlist *stack)
 	{
 		if (stacksize(*stack, 0) != 0)
 		{
-			stack = returntop(stack);
 			hold = stack;
 			stack = stack->next;
 			stack->prev = NULL;
-			while (stack->next != NULL)
+			while (stack->next)
 				stack = stack->next;
 			stack->next = hold;
 			hold = stack;
 			stack = stack->next;
-			stack->next = NULL;
 			stack->prev = hold;
+			stack->next = NULL;
 		}
 	}
-	stack = returntop(stack);
 }
 
 void	rrab(t_intlist *stack)

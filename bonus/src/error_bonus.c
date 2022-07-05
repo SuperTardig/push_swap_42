@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 13:42:48 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 10:18:59 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/23 10:23:22 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,6 @@ int	checkmax(int ac, char *av[])
 	}
 	return (0);
 }
-/*ft_putstr_fd("Error\n", 2);
-ft_putstr_fd(av[i], 2);
-ft_putstr_fd(" is over or under the limits of an int\n", 2);*/
 
 int	checkdup(int ac, char *av[])
 {
@@ -52,9 +49,6 @@ int	checkdup(int ac, char *av[])
 	}
 	return (0);
 }
-/*ft_putstr_fd("Error\n", 2);
-ft_putstr_fd(av[i], 2);
-ft_putstr_fd(" has one or more duplicate\n", 2);*/
 
 int	checkint(int ac, char *av[])
 {
@@ -77,9 +71,6 @@ int	checkint(int ac, char *av[])
 	}
 	return (0);
 }
-/*ft_putstr_fd("Error\n", 2);
-ft_putstr_fd(av[i], 2);
-ft_putstr_fd(" is not a number\n", 2);*/
 
 int	error(int ac, char *av[])
 {

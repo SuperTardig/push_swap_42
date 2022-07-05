@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 11:41:32 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 10:16:53 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/04 11:51:29 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	four_to_nine(t_stacks *stacks, int nbsize)
 	while (--nbsize >= 0)
 	{
 		min = findmin(stacks->stack_a);
-		stacks->stack_a = flip(stacks->stack_a, min, 1);
+		flip(stacks->stack_a, min, 1);
 		stacks = pab (stacks, 1);
 		if (checkorder(stacks->stack_a) == 0
 			&& stacksize(*stacks->stack_b, 0) == 0)

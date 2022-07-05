@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:53:23 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 10:16:35 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/05 08:47:40 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	findindice(t_intlist *stack, int num)
 	while (stack)
 	{
 		i++;
-		if (stack->content == num)
+		if (stack->index == num)
 			return (i);
 		stack = stack->next;
 	}

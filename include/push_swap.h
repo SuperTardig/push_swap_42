@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:50:50 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 11:17:38 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/28 14:37:13 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-# include "limits.h"
+# include <limits.h>
 
 typedef struct s_intlist
 {
 	int						content;
+	int						index;
 	struct s_intlist		*next;
 	struct s_intlist		*prev;
 }	t_intlist;
@@ -27,6 +28,8 @@ typedef struct s_stacks
 {
 	t_intlist	*stack_a;
 	t_intlist	*stack_b;
+	int			median;
+	int			median_index;
 }	t_stacks;
 
 int			error(int ac, char *av[]);
@@ -45,7 +48,10 @@ void		cleanstacks(t_stacks *stacks);
 int			findmax(t_intlist *stack);
 int			findmin(t_intlist *stack);
 int			findmin_chunk(t_intlist *stackk, int chunk);
-t_intlist	*flip(t_intlist *stack, int min, int i);
+void		flip(t_intlist *stack, int min, int i);
+void		indexing(t_intlist *stack);
+int			find_min_index(t_intlist *stack);
+void		find_median(t_stacks *stacks);
 
 void		pushswap(t_stacks *stacks, char ***split, int ac, char *av[]);
 void		redirection(t_stacks *stacks, char ***split, char *av[]);
@@ -53,7 +59,6 @@ void		sorting(t_stacks *stacks);
 void		three(t_intlist *stacks);
 void		four_to_nine(t_stacks *stacks, int nbsize);
 void		ten_to_infinite(t_stacks *stacks);
-void		align(t_intlist *stack, int min);
 
 void		ss(t_stacks *stacks);
 void		rr(t_stacks *stacks);

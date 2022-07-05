@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:50:44 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 11:22:59 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/27 15:20:38 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	initstacks(t_intlist *stack_a, int count, char **integrers)
 	{
 		if (integrers[i] != NULL)
 			stack_a->content = ft_atoi(integrers[i]);
+			stack_a->index = 0;
 		if (i != count - 1)
 		{
 			hold = stack_a;
@@ -47,7 +48,11 @@ void	sorting(t_stacks *stacks)
 		&& stacksize(*stacks->stack_a, 0) < 10)
 		four_to_nine(stacks, stacksize(*stacks->stack_a, 0) - 3);
 	else
+	{
+		indexing(stacks->stack_a);
+		find_median(stacks);
 		ten_to_infinite(stacks);
+	}
 }
 
 void	redirection(t_stacks *stacks, char ***split, char *av[])

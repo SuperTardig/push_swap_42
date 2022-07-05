@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 10:52:53 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 11:11:28 by bperron          ###   ########.fr       */
+/*   Updated: 2022/06/23 10:22:46 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CHECKER_BONUS_H
 
 # include "../libft/libft.h"
+# include <stdio.h>
 
 typedef struct s_intlist
 {
