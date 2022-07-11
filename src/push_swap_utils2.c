@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:53:23 by bperron           #+#    #+#             */
-/*   Updated: 2022/07/05 08:47:40 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/11 13:53:49 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	cleanstacks(t_stacks *stacks)
 	{
 		if (stacks->stack_a)
 		{
-			stacks->stack_a = returntop(stacks->stack_a);
 			while (stacks->stack_a)
 			{
 				tmp = stacks->stack_a->next;
@@ -77,19 +76,23 @@ void	cleanstacks(t_stacks *stacks)
 
 int	findmin(t_intlist *stack)
 {
-	int	min;
+	int			min;
+	t_intlist	*head;
 
-	min = stack->content;
+	head = stack;
+	min = INT_MAX;
 	while (stack)
 	{
-		if (min > stack->content)
-			min = stack->content;
+		if (min > stack->index)
+			min = stack->index;
 		if (stack->next != NULL)
 			stack = stack->next;
 		else
 			break ;
 	}
-	stack = returntop(stack);
+	if (min > stack->index)
+		min = stack->index;
+	stack = head;
 	return (min);
 }
 
@@ -104,7 +107,7 @@ int	findmin_chunk(t_intlist *stack, int chunk)
 	{
 		if (min > stack->content && ((findindice(hold, stack->content)
 					<= (chunk / 2)) || (findindice(hold, stack->content)
-					> (stacksize(*hold, 0) - (chunk / 2)))))
+					> (stacksize(hold, 0) - (chunk / 2)))))
 			min = stack->content;
 		if (stack->next != NULL)
 			stack = stack->next;

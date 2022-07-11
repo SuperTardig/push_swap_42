@@ -6,24 +6,32 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 11:41:32 by bperron           #+#    #+#             */
-/*   Updated: 2022/07/04 11:51:29 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:51:26 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	three(t_intlist *stack)
+void	three(t_intlist **stack)
 {
-	if (stack->content < stack->next->content)
-		rrab(stack, 1);
-	if (stack->content > stack->next->content
-		&& stack->content > stack->next->next->content)
-		rab(stack, 1);
-	stack = returntop(stack);
-	if (stack->content > stack->next->content
-		&& stack->next->content < stack->next->next->content)
-		sab(stack, 1);
-	stack = returntop(stack);
+	if ((*stack)->content < (*stack)->next->content)
+		rrab(stack, 'a');
+	if ((*stack)->content > (*stack)->next->content
+		&& (*stack)->content > (*stack)->next->next->content)
+		rab(stack, 'a');
+	if ((*stack)->content > (*stack)->next->content
+		&& (*stack)->next->content < (*stack)->next->next->content)
+		sab(stack, 'a');
+}
+
+void	flip(t_intlist **stack, int min)
+{
+	if (findindice(*stack, min) <= stacksize(*stack, 0) / 2)
+		while ((*stack)->index != min)
+			rab(stack, 'a');
+	else
+		while ((*stack)->index != min)
+			rrab(stack, 'a');
 }
 
 void	four_to_nine(t_stacks *stacks, int nbsize)
@@ -33,16 +41,10 @@ void	four_to_nine(t_stacks *stacks, int nbsize)
 	while (--nbsize >= 0)
 	{
 		min = findmin(stacks->stack_a);
-		flip(stacks->stack_a, min, 1);
-		stacks = pab (stacks, 1);
-		if (checkorder(stacks->stack_a) == 0
-			&& stacksize(*stacks->stack_b, 0) == 0)
-			return ;
-		if (nbsize == 0 && checkorder(stacks->stack_a) != 0)
-			three(stacks->stack_a);
-		stacks->stack_a = returntop(stacks->stack_a);
+		flip(&stacks->stack_a, min);
+		pab (&stacks->stack_a, &stacks->stack_b, 'b');
 	}
-	while (stacks->stack_b->next != NULL)
-		stacks = pab(stacks, 2);
-	stacks = pab(stacks, 2);
+	three(&stacks->stack_a);
+	while (stacks->stack_b)
+		pab(&stacks->stack_b, &stacks->stack_a, 'a');
 }

@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:50:44 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/27 15:20:38 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:07:02 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,16 @@ void	initstacks(t_intlist *stack_a, int count, char **integrers)
 	int			i;
 
 	i = 0;
-	stack_a->prev = NULL;
 	while (++i < count)
 	{
 		if (integrers[i] != NULL)
 			stack_a->content = ft_atoi(integrers[i]);
-			stack_a->index = 0;
+		stack_a->index = 0;
 		if (i != count - 1)
 		{
 			hold = stack_a;
 			stack_a->next = malloc(sizeof(t_intlist));
 			stack_a = stack_a->next;
-			stack_a->prev = hold;
 		}
 	}
 	stack_a->next = NULL;
@@ -37,19 +35,19 @@ void	initstacks(t_intlist *stack_a, int count, char **integrers)
 
 void	sorting(t_stacks *stacks)
 {
-	if (stacksize(*stacks->stack_a, 0) == 2)
+	indexing(stacks->stack_a);
+	if (stacksize(stacks->stack_a, 0) == 2)
 	{
 		if (stacks->stack_a->content > stacks->stack_a->next->content)
-			sab(stacks->stack_a, 1);
+			sab(&stacks->stack_a, 'a');
 	}
-	else if (stacksize(*stacks->stack_a, 0) == 3)
-		three(stacks->stack_a);
-	else if (stacksize(*stacks->stack_a, 0) > 3
-		&& stacksize(*stacks->stack_a, 0) < 10)
-		four_to_nine(stacks, stacksize(*stacks->stack_a, 0) - 3);
+	else if (stacksize(stacks->stack_a, 0) == 3)
+		three(&stacks->stack_a);
+	else if (stacksize(stacks->stack_a, 0) > 3
+		&& stacksize(stacks->stack_a, 0) < 10)
+		four_to_nine(stacks, stacksize(stacks->stack_a, 0) - 3);
 	else
 	{
-		indexing(stacks->stack_a);
 		find_median(stacks);
 		ten_to_infinite(stacks);
 	}

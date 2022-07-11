@@ -6,7 +6,7 @@
 #    By: bperron <bperron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 10:16:37 by bperron           #+#    #+#              #
-#    Updated: 2022/06/28 09:28:41 by bperron          ###   ########.fr        #
+#    Updated: 2022/07/11 14:50:13 by bperron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT = @$(MAKE) -sC libft
 LIB = ./libft/libft.a
 
 HEADERS = include/push_swap.h
-SRCS = src/big_algo.c src/error.c src/operations_multi.c src/operations_push.c src/operations_single.c src/push_swap_utils.c src/push_swap_utils2.c src/push_swap_utils3.c src/push_swap.c src/small_algo.c
+SRCS = src/big_algo.c src/put_a_in_b.c src/put_b_in_a.c src/error.c src/operations_multi.c src/operations_single.c src/push_swap_utils.c src/push_swap_utils2.c src/push_swap_utils3.c src/push_swap.c src/small_algo.c
 OBJS = $(SRCS:.c=.o)
 
 LIBFT_BONUS = @$(MAKE) -sC bonus/libft
@@ -32,11 +32,11 @@ SRCS_BONUS =  bonus/src/checker_bonus.c bonus/src/error_bonus.c bonus/src/operat
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
-	echo "Mandatory compilation done"
 
 $(NAME): $(SRCS) $(OBJS) $(HEADERS)
 	$(LIBFT)
 	$(CC) $(CFLAGS) $(LIB) $(OBJS) -o $(NAME)
+	echo "Mandatory compilation done"
 
 clean:
 	$(LIBFT) clean

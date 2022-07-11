@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 10:55:56 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/28 11:32:25 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/11 14:47:46 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,30 @@
 
 void	printstack(t_intlist *stack)
 {
-	stack = returntop(stack);
-	while (stack->next != NULL)
+	if (stack)
 	{
+		while (stack->next)
+		{
+			printf ("index = %d, number = %d\n", stack->index, stack->content);
+			stack = stack->next;
+		}
 		printf ("index = %d, number = %d\n", stack->index, stack->content);
-		stack = stack->next;
 	}
-	printf ("index = %d, number = %d\n", stack->index, stack->content);
 }
 
-t_intlist	*returntop(t_intlist *stack)
-{
-	while (stack->prev != NULL)
-		stack = stack->prev;
-	return (stack);
-}
-
-int	stacksize(t_intlist stack, int j)
+int	stacksize(t_intlist *stack, int j)
 {
 	int	i;
 
-	i = 0;
-	while (stack.next != NULL)
+	i = 1;
+	if (stack == NULL)
+		return (0);
+	stack = stack->next;
+	while (stack != NULL)
 	{
-		stack = *stack.next;
+		stack = stack->next;
 		i++;
 	}
-	i++;
 	if (j == 1 && i % 2 != 0)
 		return (++i);
 	return (i);
@@ -48,18 +45,21 @@ int	stacksize(t_intlist stack, int j)
 
 int	checkorder(t_intlist *stack)
 {
+	t_intlist	*head;
+
+	head = stack;
 	if (stack)
 	{
 		while (stack->next != NULL)
 		{
 			if (stack->content >= stack->next->content)
 			{
-				returntop(stack);
+				stack = head;
 				return (1);
 			}
 			stack = stack->next;
 		}
-		returntop(stack);
+		stack = head;
 	}
 	return (0);
 }
