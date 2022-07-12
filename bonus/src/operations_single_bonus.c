@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 11:38:56 by bperron           #+#    #+#             */
-/*   Updated: 2022/07/12 10:10:21 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/12 11:38:54 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	rab(t_intlist *stack)
 
 	if (stack)
 	{
-		if (stacksize(*stack, 0) != 0)
+		if (stacksize(*stack, 0) > 1)
 		{
 			hold = stack;
 			stack = stack->next;
@@ -83,7 +83,7 @@ void	rrab(t_intlist *stack)
 
 	if (stack)
 	{
-		if (stacksize(*stack, 0) != 0)
+		if (stacksize(*stack, 0) > 1)
 		{
 			stack = returntop(stack);
 			while (stack->next != NULL)
