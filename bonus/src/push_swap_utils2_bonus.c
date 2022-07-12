@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:53:23 by bperron           #+#    #+#             */
-/*   Updated: 2022/07/12 10:19:44 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/12 10:26:22 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	format2(t_stacks *stacks, char *output)
 
 void	format(t_stacks *stacks, char *output)
 {
-
 	if (ft_strcmp(output, "sa\n") == 0)
 		sab(stacks->stack_a);
 	else if (ft_strcmp(output, "sb\n") == 0)
