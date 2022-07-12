@@ -6,7 +6,7 @@
 #    By: bperron <bperron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/06 10:16:37 by bperron           #+#    #+#              #
-#    Updated: 2022/07/11 14:50:13 by bperron          ###   ########.fr        #
+#    Updated: 2022/07/12 10:24:21 by bperron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,11 +51,11 @@ fclean:	clean
 	echo "Fclean done"
 
 bonus: $(NAME_BONUS)
-	echo "Bonus compilation done"
 
 $(NAME_BONUS): $(SRCS_BONUS) $(OBJS_BONUS) $(HEADERS_BONUS)
 	$(LIBFT_BONUS)
 	$(CC) $(CFLAGS) $(LIB_BONUS) $(OBJS_BONUS) -o $(NAME_BONUS)
+	echo "Bonus compilation done"
 
 re:	fclean all
 

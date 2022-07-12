@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 11:43:29 by bperron           #+#    #+#             */
-/*   Updated: 2022/07/11 14:51:17 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/12 09:41:04 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static void	option_2(t_stacks *stacks, int var)
 {
 	int	i;
 
-	i = 0;
-	while (i < stacksize(stacks->stack_a, 0))
+	i = -1;
+	while (++i < stacksize(stacks->stack_a, 0))
 	{
 		if (stacks->stack_a->index == var)
 		{
@@ -43,7 +43,6 @@ static void	option_2(t_stacks *stacks, int var)
 		}
 		else if (stacks->stack_a->next)
 			rrab(&stacks->stack_a, 'a');
-		i++;
 	}
 }
 
@@ -51,8 +50,8 @@ static void	option_1(t_stacks *stacks, int var)
 {
 	int	i;
 
-	i = 0;
-	while (i < stacksize(stacks->stack_a, 0))
+	i = -1;
+	while (++i < stacksize(stacks->stack_a, 0))
 	{
 		if (stacks->stack_a->index == var)
 		{
@@ -69,7 +68,6 @@ static void	option_1(t_stacks *stacks, int var)
 		}
 		else if (stacks->stack_a->next)
 			rab(&stacks->stack_a, 'a');
-		i++;
 	}
 }
 

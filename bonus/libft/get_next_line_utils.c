@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 09:24:21 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/08 13:24:40 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/12 10:17:46 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int	check(char *new)
 		|| ft_strcmp(new, "ra\n") == 0 || ft_strcmp(new, "rb\n") == 0
 		|| ft_strcmp(new, "rra\n") == 0 || ft_strcmp(new, "rrb\n") == 0
 		|| ft_strcmp(new, "pa\n") == 0 || ft_strcmp(new, "pb\n") == 0
-		|| new == NULL)
+		|| new == NULL || ft_strcmp(new, "ss\n") == 0
+		|| ft_strcmp(new, "rr\n") == 0 || ft_strcmp(new, "rrr\n") == 0)
 		return (0);
 	else
 		return (1);

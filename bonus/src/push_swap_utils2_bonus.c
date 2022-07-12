@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 17:53:23 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/23 10:43:26 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/12 10:19:44 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,19 @@ void	cleanstacks(t_stacks *stacks)
 	}
 }
 
+void	format2(t_stacks *stacks, char *output)
+{
+	if (ft_strcmp(output, "ss\n") == 0)
+		ss(stacks);
+	else if (ft_strcmp(output, "rr\n") == 0)
+		rr(stacks);
+	else if (ft_strcmp(output, "rrr\n") == 0)
+		rrr(stacks);
+}
+
 void	format(t_stacks *stacks, char *output)
 {
+
 	if (ft_strcmp(output, "sa\n") == 0)
 		sab(stacks->stack_a);
 	else if (ft_strcmp(output, "sb\n") == 0)
@@ -82,6 +93,7 @@ void	format(t_stacks *stacks, char *output)
 		pab(stacks, 1);
 	else if (ft_strcmp(output, "bad") == 0)
 		quit(stacks, output);
+	format2(stacks, output);
 	if (stacks->stack_a)
 		stacks->stack_a = returntop(stacks->stack_a);
 	if ((stacks->stack_b))

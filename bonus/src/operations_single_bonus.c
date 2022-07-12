@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 11:38:56 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/23 13:04:34 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/12 10:10:21 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	sab(t_intlist *stack)
 			stack->next = hold;
 			stack = stack->next;
 			stack->next = temp;
-			stack->next->prev = stack;
+			if (stack->next)
+				stack->next->prev = stack;
 		}
 	}
 }
