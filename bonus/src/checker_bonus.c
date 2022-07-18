@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 10:46:35 by bperron           #+#    #+#             */
-/*   Updated: 2022/06/23 12:25:50 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/18 10:58:32 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	redirection(t_stacks *stacks, char ***split, char *av[])
 
 	nbint = 0;
 	*split = ft_split(av[1], ' ', &nbint);
-	if (error(nbint, *split))
+	if (error(nbint, *split) || nbint < 2)
 	{
 		if (split != NULL)
 			clean(NULL, split);
