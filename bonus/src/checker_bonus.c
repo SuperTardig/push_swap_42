@@ -6,7 +6,7 @@
 /*   By: bperron <bperron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 10:46:35 by bperron           #+#    #+#             */
-/*   Updated: 2022/07/18 10:58:32 by bperron          ###   ########.fr       */
+/*   Updated: 2022/07/21 09:51:57 by bperron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,6 @@ void	redirection(t_stacks *stacks, char ***split, char *av[])
 			clean(NULL, split);
 		ft_putstr_fd("Error\n", 2);
 		exit (1);
-	}
-	if (nbint == 2)
-	{
-		clean(NULL, split);
-		exit (0);
 	}
 	stacks->stack_a = malloc(sizeof(t_intlist));
 	initstacks(stacks->stack_a, nbint, *split);
